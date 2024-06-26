@@ -70,6 +70,18 @@ vercel login
 vercel
 ```
 
+4. **Configurar Variáveis de Ambiente no Vercel**:
+   - Acesse o painel do Vercel e selecione o projeto.
+   - Vá para a aba **Settings** do projeto.
+   - No menu lateral, selecione **Environment Variables**.
+   - Adicione as variáveis de ambiente necessárias:
+     - **Name**: `VITE_API_BASE_URL`
+     - **Value**: `https://api.example.com` (substitua pelo valor real)
+     - **Environment**: Escolha os ambientes onde essa variável deve estar disponível (Development, Preview, Production).
+     - **Name**: `VITE_TOKEN`
+     - **Value**: `seu-token-aqui` (substitua pelo valor real)
+     - **Environment**: Escolha os ambientes onde essa variável deve estar disponível (Development, Preview, Production).
+
 Siga as instruções no terminal para completar o deploy.
 
 
