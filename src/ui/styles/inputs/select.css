@@ -1,0 +1,11 @@
+.option-container {
+    display: flex;
+    align-items: center;
+}
+
+.vertical-divider {
+    width: 2px;
+    height: 18px;
+    background-color: #00000050;
+    margin-inline: .3rem;
+  }

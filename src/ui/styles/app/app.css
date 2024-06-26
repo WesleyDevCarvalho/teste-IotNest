@@ -1,0 +1,108 @@
+.container {
+    max-width: 1280px;
+    padding-inline: 1rem;
+    margin-inline: auto;
+    margin-block: 1.5rem;
+}
+
+.competition-name h2 {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.container .rounds {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+}
+
+.container .round {
+    width: 100%;
+    margin-inline: auto;
+}
+
+.container .round h2 {
+    font-size: 1rem;
+    font-weight: 400;
+    padding-block: .5rem;
+    padding-inline: 1.7rem;
+    margin: 0;
+    background-color: #f5f7f8;
+}
+
+.container .round .matches {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    box-shadow: 0 1.5rem 0 #c2c1c160;
+}
+
+.container .round .matches.single-column {
+    grid-template-columns: 1fr;
+}
+
+.container .round .matches .home-team, 
+.container .round .matches .away-team {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.container .match {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px #9c9b9b30;
+    padding-block: 1rem;
+    padding-inline: 1.5rem;
+    gap: .5rem;
+}
+
+.container .filters {
+    display: flex;
+    flex-direction: column;
+    margin-top: .8rem;
+    gap: .8rem;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 1024px) {
+    .container .rounds {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .container .rounds {
+        grid-template-columns: 1fr;
+    }
+
+    .container .round .matches {
+        grid-template-columns: 1fr;
+    }
+}
