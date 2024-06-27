@@ -1,5 +1,7 @@
 # Teste Prático IOT Nest
 
+https://teste-iot-nest.vercel.app/
+
 ## Descrição do Projeto
 
 Esta aplicação lista os dados dos campeonatos disponibilizados pela API fornecida. O usuário pode selecionar um campeonato e visualizar todas as rodadas desse campeonato, além de aplicar filtros por equipe e rodada.
