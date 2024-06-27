@@ -12,8 +12,12 @@ const MatchList: React.FC<MatchListProps> = ({ matches, selectedTeamId }) => {
       {matches.map((match) => (
         <div className='match' key={match.id}>
           <div>{format(new Date(match.utcDate), 'dd/MM/yyyy HH:mm')}</div>
-          <span className='home-team'><img width={20} src={match.homeTeam.crest} /> {match.homeTeam.shortName}</span>
-          <span className='away-team'><img width={20} src={match.awayTeam.crest} /> {match.awayTeam.shortName}</span>
+          <div className='score-wrapper'>
+            <span className='home-team'><img width={20} src={match.homeTeam.crest} /> {match.homeTeam.shortName}</span> <span><small>{match.score.winner === 'HOME_TEAM' ? '🏆' : ''}</small> {match.score.fullTime.home}</span> 
+          </div>
+          <div  className='score-wrapper'>
+            <span className='away-team'><img width={20} src={match.awayTeam.crest} /> {match.awayTeam.shortName}</span> <span><small>{match.score.winner === 'AWAY_TEAM' ? '🏆' : ''}</small> {match.score.fullTime.away}</span>
+          </div>
         </div>
       ))}
     </div>

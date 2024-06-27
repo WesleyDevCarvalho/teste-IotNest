@@ -13,6 +13,8 @@ import './ui/styles/app/app.css';
 function App() {
   const { competitions, matches, selectedTeamId, round, isLoading } = useAppContext();
 
+  console.log(matches)
+
   const competitionName = matches[0]?.competition.name;
 
   const filteredMatches = filterMatchesByTeam(matches, selectedTeamId);

@@ -45,12 +45,12 @@ export type Match = {
         winner: string
         duration: string
         fullTime: {
-            homeTeam: number
-            awayTeam: number
+            home: number
+            away: number
         }
         halfTime: {
-            homeTeam: number
-            awayTeam: number
+            home: number
+            away: number
         }
     }
 }
