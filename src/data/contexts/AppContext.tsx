@@ -61,15 +61,15 @@ export const AppContextProvider: React.FC<any> = ({ children }) => {
   useEffect(() => {
     const handleCompetitionChange = async () => {
       try {
-        setIsLoading(true);
+        setIsLoading(true)
         if (selectedCompetitionId) {
-          const response = await getMatches(selectedCompetitionId);
-          setMatches(response.matches);
+          const response = await getMatches(selectedCompetitionId)
+          setMatches(response.matches)
         } else {
           setMatches([]);
         }
       } catch (error: AxiosError | unknown) {
-        const axiosError = error as AxiosError;
+        const axiosError = error as AxiosError
         if (axiosError.response?.status === 429) {
           toast.error("Limite de chamadas excedido. Tente novamente em alguns segundos.", {
             theme: 'colored',
@@ -82,25 +82,25 @@ export const AppContextProvider: React.FC<any> = ({ children }) => {
           });
         }
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
 
-      setSelectedTeamId(null);
-      setRound([]);
+      setSelectedTeamId(null)
+      setRound([])
     };
 
-    handleCompetitionChange();
-  }, [selectedCompetitionId]);
+    handleCompetitionChange()
+  }, [selectedCompetitionId])
 
   const competitionsOptions = useMemo(() => {
     return competitions.map((competition) => ({ id: competition.id, code: competition.code, name: competition.name, image: competition.area.flag || competition.emblem }))
   }, [competitions.length])
 
   const teamsOptions = useMemo(() => {
-    const teamMap = new Map();
+    const teamMap = new Map()
     matches.forEach(match => {
-      const homeTeamId = match.homeTeam.id;
-      const awayTeamId = match.awayTeam.id;
+      const homeTeamId = match.homeTeam.id
+      const awayTeamId = match.awayTeam.id
 
       if (!teamMap.has(homeTeamId)) {
         teamMap.set(homeTeamId, {
@@ -118,19 +118,19 @@ export const AppContextProvider: React.FC<any> = ({ children }) => {
         });
       }
     });
-    return [...teamMap.values()];
-  }, [matches]);
+    return [...teamMap.values()]
+  }, [matches])
 
   const roundOptions = useMemo(() => {
-    const rounds = new Set();
+    const rounds = new Set()
     matches.forEach(match => {
       const roundNumber = parseInt(match.matchday, 10) as number;
       if (!isNaN(roundNumber)) {
-        rounds.add(roundNumber);
+        rounds.add(roundNumber)
       }
     });
     return Array.from(rounds).sort((a, b) => (a as number) - (b as number)) as number[];
-  }, [matches.length]);
+  }, [matches.length])
 
   return (
     <App.Provider value={{ competitions, matches, isLoading, selectedCompetitionId, selectedTeamId, round, competitionsOptions, teamsOptions, roundOptions, setRound, setSelectedCompetitionId, setSelectedTeamId }}>

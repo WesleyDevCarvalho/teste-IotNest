@@ -33,7 +33,7 @@ export const getCompetitions = async (): Promise<PromiseApiReturn> => {
 }
 
 export const getMatches = async (competitionId: number): Promise<PromiseApiMatchesReturn> => {
-    const response = await api.get(`/${competitionId}/matches`,)
+    const response = await api.get(`/${competitionId}/matches`)
 
     return response.data
 }

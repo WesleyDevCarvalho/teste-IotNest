@@ -1,9 +1,9 @@
-import { format } from 'date-fns';
-import { Match } from '../../data/@types/request/api';
+import { format } from 'date-fns'
+import { Match } from '../../data/@types/request/api'
 
 interface MatchListProps {
-  matches: Match[];
-  selectedTeamId: number | null;
+  matches: Match[]
+  selectedTeamId: number | null
 }
 
 const MatchList: React.FC<MatchListProps> = ({ matches, selectedTeamId }) => {
@@ -24,4 +24,4 @@ const MatchList: React.FC<MatchListProps> = ({ matches, selectedTeamId }) => {
   );
 };
 
-export default MatchList;
+export default MatchList

@@ -1,25 +1,23 @@
-import { filterMatchesByRound, filterMatchesByTeam, groupMatchesByRound } from './data/utils/filters';
-import { Suspense, lazy } from 'react';
-import { useAppContext } from './data/contexts/AppContext';
-import CompetitionSelect from './ui/components/inputs/CompetitionSelect';
+import { filterMatchesByRound, filterMatchesByTeam, groupMatchesByRound } from './data/utils/filters'
+import { Suspense, lazy } from 'react'
+import { useAppContext } from './data/contexts/AppContext'
+import CompetitionSelect from './ui/components/inputs/CompetitionSelect'
 
-const Filters = lazy(() => import('./ui/partials/Filters'));
-const RoundList = lazy(() => import('./ui/partials/RoundList'));
+const Filters = lazy(() => import('./ui/partials/Filters'))
+const RoundList = lazy(() => import('./ui/partials/RoundList'))
 
 // Importação de Estilos
-import './ui/styles/app/app.css';
+import './ui/styles/app/app.css'
 
 
 function App() {
   const { competitions, matches, selectedTeamId, round, isLoading } = useAppContext();
 
-  console.log(matches)
+  const competitionName = matches[0]?.competition.name
 
-  const competitionName = matches[0]?.competition.name;
-
-  const filteredMatches = filterMatchesByTeam(matches, selectedTeamId);
-  const matchesByRound = groupMatchesByRound(filteredMatches);
-  const filteredMatchesByRound = filterMatchesByRound(matchesByRound, round);
+  const filteredMatches = filterMatchesByTeam(matches, selectedTeamId)
+  const matchesByRound = groupMatchesByRound(filteredMatches)
+  const filteredMatchesByRound = filterMatchesByRound(matchesByRound, round)
 
   return (
     <div className='container'>
@@ -48,4 +46,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

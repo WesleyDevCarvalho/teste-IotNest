@@ -1,5 +1,5 @@
-import { useAppContext } from "../../../data/contexts/AppContext";
-import Select from "react-select";
+import { useAppContext } from "../../../data/contexts/AppContext"
+import Select from "react-select"
 
 
 // Importação de Estilos
@@ -7,14 +7,14 @@ import '../../styles/inputs/select.css'
 
 
 interface CustomSelectProps extends React.ComponentProps<typeof Select> {
-    options: { code: string; name: string; image: string }[];
+    options: { code: string; name: string; image: string }[]
 }
 
 const CompetitionSelect = ({ }: CustomSelectProps) => {
     const { competitionsOptions, setSelectedCompetitionId } = useAppContext()
 
     const formatOptionLabel = ({ label }: { label: string }) => {
-        const option = competitionsOptions.find((option) => option.name === label);
+        const option = competitionsOptions.find((option) => option.name === label)
         if (option) {
             return (
                 <div className="option-container">
@@ -26,7 +26,7 @@ const CompetitionSelect = ({ }: CustomSelectProps) => {
                 </div>
             );
         }
-        return label;
+        return label
     };
 
     const options = competitionsOptions.map((option) => ({
@@ -49,4 +49,4 @@ const CompetitionSelect = ({ }: CustomSelectProps) => {
     );
 };
 
-export default CompetitionSelect;
+export default CompetitionSelect

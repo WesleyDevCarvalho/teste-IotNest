@@ -1,13 +1,13 @@
-import { Match } from '../../data/@types/request/api';
-import MatchList from './MatchList';
+import { Match } from '../../data/@types/request/api'
+import MatchList from './MatchList'
 
 interface MatchByRound {
-  [round: string]: Match[];
+  [round: string]: Match[]
 }
 
 interface RoundListProps {
-  matchesByRound: MatchByRound;
-  selectedTeamId: number | null;
+  matchesByRound: MatchByRound
+  selectedTeamId: number | null
 }
 
 const RoundList: React.FC<RoundListProps> = ({ matchesByRound, selectedTeamId }) => {
@@ -23,4 +23,4 @@ const RoundList: React.FC<RoundListProps> = ({ matchesByRound, selectedTeamId })
   );
 };
 
-export default RoundList;
+export default RoundList
